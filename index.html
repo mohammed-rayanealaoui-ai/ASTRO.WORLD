@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Solar System Explorer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style45.css">
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
@@ -45,9 +46,66 @@
 </div>
 
 <div id="app" class="app hidden">
-  <header class="topbar"><div class="brand">✦ SOLAR EXPLORER</div><nav><button data-section="planets">Planètes</button><button data-section="sun">Soleil</button><button data-section="galaxies">Galaxies</button></nav><div class="account"><img id="avatar" src="" alt=""><span id="accountName">Explorateur</span><button id="logout">Déconnexion</button></div></header>
+  <header class="topbar"><div class="brand">✦ SOLAR EXPLORER</div><nav><button data-section="welcome" class="nav-home active"><span>⌂</span> Accueil</button><button data-section="planets">Planètes</button><button data-section="sun">Soleil</button><button data-section="galaxies">Galaxies</button></nav><div class="account"><img id="avatar" src="" alt=""><span id="accountName">Explorateur</span><button id="logout">Déconnexion</button></div></header>
   <main>
-    <section id="planets" class="section planets-experience active">
+    <section id="welcome" class="section welcome-section active">
+      <div class="welcome-bg"></div>
+      <div class="welcome-hero">
+        <div class="welcome-copy">
+          <span class="eyebrow">✦ ACCUEIL · EXPLORATION SPATIALE</span>
+          <h1>Bienvenue dans<br><span>le Système solaire.</span></h1>
+          <p>Explore les mondes qui nous entourent, découvre les grandes missions spatiales et plonge dans les images de l’exploration humaine et robotique.</p>
+          <div class="welcome-actions">
+            <button class="primary" data-go-section="planets">Explorer les planètes →</button>
+            <button class="secondary" data-go-section="missions">Voir les missions</button>
+          </div>
+        </div>
+        <div class="welcome-earth" aria-label="La Terre vue depuis l'espace">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="La Terre vue depuis Apollo 17">
+          <div class="welcome-orbit-ring"></div>
+          <div class="welcome-orbit-dot"></div>
+        </div>
+      </div>
+
+      <div class="welcome-stats">
+        <div><b>8</b><span>planètes</span></div>
+        <div><b>1</b><span>étoile · le Soleil</span></div>
+        <div><b>300+</b><span>missions robotiques au-delà de l'orbite terrestre</span></div>
+        <div><b>12</b><span>astronautes ont marché sur la Lune</span></div>
+      </div>
+
+      <div class="welcome-block">
+        <div class="welcome-heading"><span class="detail-label">À DÉCOUVRIR</span><h2>Un voyage de la Terre aux mondes lointains</h2><p>Chaque carte ouvre une histoire : un monde, une mission, une découverte ou une image.</p></div>
+        <div class="welcome-cards">
+          <article class="welcome-card photo-card earth-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Terre vue par Apollo 17">
+            <div><span>NOTRE MONDE</span><h3>La Terre</h3><p>Le seul monde où la vie est actuellement connue.</p><button data-go-section="planets">Découvrir →</button></div>
+          </article>
+          <article class="welcome-card photo-card mars-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg" alt="Mars en couleur naturelle">
+            <div><span>PLANÈTE ROUGE</span><h3>Mars</h3><p>Des rovers parcourent sa surface pour comprendre son passé.</p><button data-open-planet="3">Explorer Mars →</button></div>
+          </article>
+          <article class="welcome-card photo-card moon-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg" alt="Buzz Aldrin sur la Lune pendant Apollo 11">
+            <div><span>EXPLORATION HUMAINE</span><h3>Sur la Lune</h3><p>Apollo 11 a permis aux premiers humains de marcher sur un autre monde.</p><a href="https://www.nasa.gov/mission/apollo-11/" target="_blank" rel="noopener">Voir Apollo 11 →</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div id="missions" class="welcome-block missions-block">
+        <div class="welcome-heading"><span class="detail-label">MISSIONS & EXPLORATEURS</span><h2>Des machines qui voyagent à notre place</h2><p>NASA et ses partenaires utilisent des sondes, orbiteurs et rovers pour étudier des mondes que nous ne pouvons pas encore visiter nous-mêmes.</p></div>
+        <div class="mission-home-grid">
+          <article><div class="mission-icon">🤖</div><span>JPL · MARS</span><h3>Curiosity & Perseverance</h3><p>Deux rovers étudient la géologie martienne et recherchent des indices sur l'histoire ancienne de Mars.</p><a href="https://mars.nasa.gov/mars2020/" target="_blank" rel="noopener">Mission Mars 2020 →</a></article>
+          <article><div class="mission-icon">🪐</div><span>JUPITER</span><h3>Juno</h3><p>La sonde Juno étudie Jupiter, son atmosphère, son champ magnétique et sa structure interne.</p><a href="https://science.nasa.gov/mission/juno/" target="_blank" rel="noopener">Découvrir Juno →</a></article>
+          <article><div class="mission-icon">🚀</div><span>ESPACE PROFOND</span><h3>Voyager</h3><p>Les sondes Voyager ont survolé les planètes géantes et poursuivent leur voyage vers l'espace interstellaire.</p><a href="https://science.nasa.gov/mission/voyager/" target="_blank" rel="noopener">Voir Voyager →</a></article>
+          <article><div class="mission-icon">🌊</div><span>EUROPA</span><h3>Europa Clipper</h3><p>Cette mission étudie Europe, la lune glacée de Jupiter, et son environnement à la recherche d'indices sur son océan.</p><a href="https://science.nasa.gov/mission/europa-clipper/" target="_blank" rel="noopener">Découvrir la mission →</a></article>
+        </div>
+      </div>
+
+      <div class="welcome-source"><span>Sources & images</span><a href="https://science.nasa.gov/solar-system/" target="_blank" rel="noopener">NASA · Solar System Exploration →</a><a href="https://www.jpl.nasa.gov/images/" target="_blank" rel="noopener">NASA JPL · Image Gallery →</a></div>
+    </section>
+
+    <section id="planets" class="section planets-experience">
       <div class="planet-space-bg"></div>
       <div class="planet-experience-brand">SOLAR EXPLORER <span>IN ONLY CSS</span></div>
       <div class="planet-list" id="planetList"></div>
@@ -243,7 +301,10 @@ function enterApp(name,photo,email){localStorage.setItem('solarUser',JSON.string
 emailRegister.onclick=()=>{const n=registerName.value.trim(),e=registerEmail.value.trim(),p=registerPassword.value;if(!n||!e||p.length<6){authMsg.textContent='Entre un nom, un Gmail valide et un mot de passe de 6 caractères minimum.';return}localStorage.setItem('solarLocalUser',JSON.stringify({name:n,email:e,password:p}));enterApp(n,'',e)};
 emailLogin.onclick=()=>{const u=JSON.parse(localStorage.getItem('solarLocalUser')||'null');if(!u||u.email!==loginEmail.value.trim()||u.password!==loginPassword.value){authMsg.textContent='Email ou mot de passe incorrect.';return}enterApp(u.name,'',u.email)};
 logout.onclick=()=>{localStorage.removeItem('solarUser');app.classList.add('hidden');home.classList.remove('hidden')};
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(b.dataset.section).classList.add('active')});
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));const target=document.getElementById(id);if(target){target.classList.add('active');target.scrollTop=0;}document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.section===id));}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showSection(b.dataset.section));
+document.querySelectorAll('[data-go-section]').forEach(b=>b.addEventListener('click',()=>showSection(b.dataset.goSection)));
+document.querySelectorAll('[data-open-planet]').forEach(b=>b.addEventListener('click',()=>{activePlanet=Number(b.dataset.openPlanet);showSection('planets');renderPlanetExperience();}));
 const saved=JSON.parse(localStorage.getItem('solarUser')||'null');if(saved)enterApp(saved.name,saved.photo,saved.email);
 </script>
 <!-- SOLAR AI CHAT -->
